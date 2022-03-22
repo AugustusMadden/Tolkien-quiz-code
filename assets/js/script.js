@@ -78,6 +78,7 @@ var fourthButton = document.querySelector('#buttonD');
 
 var timerElement
 var timerCount = 100
+var i=0
 
 
 
@@ -98,41 +99,34 @@ function startTimer() {
     }, 1000);
   }
 
-function beginQuiz(event) {
+function beginQuiz() {
     startUp.setAttribute("style","display:none");
     quizStartUp.setAttribute("style","display:block");
     
-    var currentQuestion = document.createTextNode("");
 
-    currentQuestion.textContent = questionArray[0].question
-    questions.appendChild(currentQuestion);
-
-
-    firstButton.setAttribute('value', questionArray[0].choices[0]);
-    secondButton.setAttribute('value', questionArray[0].choices[1]);
-    thirdButton.setAttribute('value', questionArray[0].choices[2]);
-    fourthButton.setAttribute('value', questionArray[0].choices[3]);
-
-     for (var i=0; i < questionArray.length;){
+    if (i <= questionArray.length) {
         var currentQuestion = document.createTextNode("");
         currentQuestion.textContent = questionArray[i].question
         questions.appendChild(currentQuestion);
-
+    
         firstButton.setAttribute('value', questionArray[i].choices[0]);
         secondButton.setAttribute('value', questionArray[i].choices[1]);
         thirdButton.setAttribute('value', questionArray[i].choices[2]);
         fourthButton.setAttribute('value', questionArray[i].choices[3]);
-
+    
         function questionCycle(event){
             buttonValue = event.target
-
+            i=i+1;
+                
+    
             /* buttonValue === questionArray[i].answer */
-            
-            i++
-        } 
-    }
+                
+        }
+        firstButton.addEventListener("click", questionCycle);
 
-    questions.addEventListener("submit", questionCycle);
+    };
+    
+    
 }
 
 submitEl.addEventListener("click", beginQuiz);
