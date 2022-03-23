@@ -1,34 +1,28 @@
 # Tolkien-quiz-code
 
-## Description
-
-<!-- This build establish the interconnection between HTML and Javascript, as well as drill the basics on how to utilize objects, arrays, functions, and if statements in cooperation with one another.  
-<br>
-It took considerable effort to find the proper combination and positioning of each element to fulfill the requirements set out. The final product required the user to understand how to retrieve specified sets of data based on conditions set, combine them, and randomly access elements while ensuring at least one of each specified character was present in the final output. 
- -->
 ## Installation
 
 
 - Go to https://github.com/AugustusMadden/tolkien-quiz-code
-- Press the green code button on the top-right
-- Open Terminal/GitBash, and navigate to the space where you want the file to exist
-- Use the command `git clone <url>` and download
+- Press the green code button on the top-right.
+- Open Terminal/GitBash, and navigate to the space where you want the file to exist.
+- Use the command `git clone <url>` and download.
+- Launch index.html from downloaded repository.
 
 ## Usage
 
-<!-- Press the red button on the bottom of the screen, than answer the prompts above. Note that refusing to accept any set of characters will result in an 'undefined' message.
- -->
+Press the Start button below the heading, than answer the questions as they appear.
 
-<!-- [Sheenshot of hero image and header](images/screenshot.PNG) -->
+![Sheenshot of hero image and header](images/screenshot.PNG)
 
 ## Credits
 
-<!-- Special thanks to MDN WebDocs and W3 for assistance, as well as Laura Cole and Stephanie Smith for input
+Special thanks to MDN WebDocs and W3 for assistance
 
 - https://developer.mozilla.org/en-US/docs/Web/CSS
 - https://www.w3schools.com/html/default.asp
 
- -->
+
 ## License
 
 MIT License

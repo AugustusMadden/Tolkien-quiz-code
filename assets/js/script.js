@@ -18,15 +18,9 @@ variable.addEventListener("click", function(){})
 function setTime() {}
 event.target() (returns user answer)
 
-var xxx = document.querySelector(".class/#id") */
+*/
 
-//var tagName = alert("The violence has escalated.");
 
-//var tag = document.createElement(tagName);
-
-//tag.textContent = "Pelican."
-
-//document.body.appendChild(tag);
 
 var questionArray = [
     {
@@ -76,57 +70,67 @@ var secondButton = document.querySelector('#buttonB');
 var thirdButton = document.querySelector('#buttonC');
 var fourthButton = document.querySelector('#buttonD');
 
-var timerElement
+var timerElement = document.querySelector("#timerElement")
 var timerCount = 100
 var i=0
-
 
 
 function startTimer() {
     timer = setInterval(function() {
       timerCount--;
       timerElement.textContent = timerCount;
-      if (timerCount >= 0) {
-        if (isWin && timerCount > 0) {
-          clearInterval(timer);
-          winGame();
-        }
+      if (timerCount <= 0) {
+        window.alert("You lose. Major L.");
       }
-      if (timerCount === 0) {
-        clearInterval(timer);
-        loseGame();
+      if (i == 7){
+        window.alert("You win!");
       }
     }, 1000);
   }
 
 function beginQuiz() {
+    startTimer();
     startUp.setAttribute("style","display:none");
     quizStartUp.setAttribute("style","display:block");
+    showQuestion();
+}
     
 
-    if (i <= questionArray.length) {
-        var currentQuestion = document.createTextNode("");
-        currentQuestion.textContent = questionArray[i].question
-        questions.appendChild(currentQuestion);
+function showQuestion() {
     
-        firstButton.setAttribute('value', questionArray[i].choices[0]);
-        secondButton.setAttribute('value', questionArray[i].choices[1]);
-        thirdButton.setAttribute('value', questionArray[i].choices[2]);
-        fourthButton.setAttribute('value', questionArray[i].choices[3]);
+    var currentQuestion = questionArray[i].question;
     
-        function questionCycle(event){
-            buttonValue = event.target
-            i=i+1;
-                
+    questions.textContent = currentQuestion;
     
-            /* buttonValue === questionArray[i].answer */
-                
-        }
-        firstButton.addEventListener("click", questionCycle);
+    firstButton.setAttribute('value', questionArray[i].choices[0]);
+    firstButton.addEventListener("click", questionCycle);
 
-    };
-    
-    
+    secondButton.setAttribute('value', questionArray[i].choices[1]);
+    secondButton.addEventListener("click", questionCycle);
+
+    thirdButton.setAttribute('value', questionArray[i].choices[2]);
+    thirdButton.addEventListener("click", questionCycle);
+
+    fourthButton.setAttribute('value', questionArray[i].choices[3]);
+    fourthButton.addEventListener("click", questionCycle);
+}
+
+function questionCycle(event) {
+    var userAnswer = event.target.value;
+    console.log(userAnswer);
+
+
+    if (userAnswer === questionArray[i].answer) {
+
+        i++;
+        showQuestion();
+
+    } 
+    else {
+        timerCount = timerCount - 25;
+        i++;
+        showQuestion();
+    }
 }
 
 submitEl.addEventListener("click", beginQuiz);
